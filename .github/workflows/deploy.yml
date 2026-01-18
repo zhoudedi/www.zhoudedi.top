@@ -3,72 +3,44 @@ name: 🚀 阿里云 OSS 增量部署
 on:
   push:
     branches: 
-      - main  # 监听 main 分支的推送事件
+      - main
 
 jobs:
   sync-to-oss:
     runs-on: ubuntu-latest
     name: 🔗 增量同步静态文件
     steps:
-      # 步骤 1: 检出代码
-      # 作用：将 GitHub 仓库中的代码拉取到 GitHub Actions 的运行器（虚拟机）中
       - name: 📂 检出代码
         uses: actions/checkout@v4
         with:
-          # 关键配置：获取完整的 Git 历史记录
-          # 如果不设置为 0，ossutil 可能无法正确判断哪些文件是新增或修改的
           fetch-depth: 0
 
-      # 步骤 2: 安装工具并同步文件
       - name: 🔄 执行增量同步
         run: |
-          # --------------------------------------------------
-          # 1. 安装 ossutil 2.0 工具
-          # --------------------------------------------------
-          # 命令说明：
-          # - curl -sSL: 静默模式下载，支持 HTTPS 和重定向
-          # - -o ossutil: 将下载的内容保存为当前目录下的 'ossutil' 文件
-          # - 阿里云官方链接: 下载 ossutil 2.0 的 Linux 64位 二进制文件
-          curl -sSL -o ossutil https://gosspublic.alicdn.com/ossutil/v2/ossutil2-linux-amd64
+          # 1. 下载 ossutil 2.0 (关键：伪装成 Wget 下载，避免被 CDN 拦截)
+          # 如果不加 -H 头，有时会下载到一个 XML 错误文件，导致语法错误
+          curl -sSL -H "User-Agent: Wget" -o ossutil https://gosspublic.alicdn.com/ossutil/v2/ossutil2-linux-amd64
           
-          # --------------------------------------------------
-          # 2. 配置工具权限
-          # --------------------------------------------------
-          # 命令说明：
-          # - sudo mv: 将文件移动到系统的 /usr/local/bin 目录，使其可以在任何地方执行
-          # - sudo chmod 755: 赋予文件“可执行”权限
+          # 2. 检查文件是否下载成功 (防御性编程)
+          # 如果文件不存在或者文件大小为 0，说明下载失败了
+          if [ ! -s ossutil ]; then
+            echo " 下载 ossutil 失败！文件为空或损坏。"
+            exit 1
+          fi
+
+          # 3. 安装到系统路径并赋予执行权限
           sudo mv ossutil /usr/local/bin/ossutil
           sudo chmod 755 /usr/local/bin/ossutil
 
-          # --------------------------------------------------
-          # 3. 配置阿里云凭证 (环境变量)
-          # --------------------------------------------------
-          # 命令说明：
-          # ossutil 2.0 会自动读取以下环境变量，无需创建配置文件
-          # - OSS_ACCESS_KEY_ID: 从 GitHub Secrets 中获取你的 Access Key ID
-          # - OSS_ACCESS_KEY_SECRET: 从 GitHub Secrets 中获取你的 Access Key Secret
-          # - OSS_ENDPOINT: 从 GitHub Secrets 中获取 Bucket 所在的地域节点 (如 oss-cn-beijing)
-          export OSS_ACCESS_KEY_ID=${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          # 4. 设置环境变量 (ossutil 2.0 会自动读取这些变量)
+          export OSS_ACCESS_KEY_ID=$
           export OSS_ACCESS_KEY_SECRET=${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
           export OSS_ENDPOINT=${{ secrets.ALIYUN_OSS_ENDPOINT }}
 
-          # --------------------------------------------------
-          # 4. 执行同步命令 (核心逻辑)
-          # --------------------------------------------------
-          # 命令说明：
-          # - ossutil sync: 使用同步模式 (对比 cp 模式，支持双向比对)
-          # - ./ : 源路径，代表当前目录下的所有文件
-          # - oss://... : 目标路径，你的阿里云 OSS Bucket 地址
-          #
-          # 参数说明：
-          # --delete : ⭐️ 关键参数！如果 OSS 上有文件，但本地没有，OSS 会自动删除该文件
-          # --update : 增量更新，仅当本地文件比 OSS 上的新，或者 OSS 上没有该文件时才传输
-          # --exclude=".git*": 忽略所有 .git 开头的文件/文件夹 (防止泄露源码)
-          # --exclude=".github*": 忽略 GitHub Actions 自动生成的文件
-          # --exclude="*.log": 忽略日志文件
-          # --exclude="tmp*": 忽略临时文件
-          # --exclude=".DS_Store": 忽略 Mac 系统文件
-          # --force : 强制执行，不进行交互式询问
+          # 5. 执行同步 (核心逻辑)
+          # --delete: 自动删除 OSS 上本地没有的文件
+          # --update: 仅同步更新的文件
+          # --exclude: 排除不需要的系统/日志文件
           ossutil sync ./ oss://${{ secrets.ALIYUN_OSS_BUCKET }} \
             --delete \
             --update \
