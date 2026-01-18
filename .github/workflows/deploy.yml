@@ -17,20 +17,20 @@ jobs:
 
       - name: 🔄 执行增量同步
         run: |
-          # 1. 下载 ossutil 2.0 (关键：伪装成 Wget 下载，避免被 CDN 拦截)
-          # 如果不加 -H 头，有时会下载到一个 XML 错误文件，导致语法错误
-          curl -sSL -H "User-Agent: Wget" -o ossutil https://gosspublic.alicdn.com/ossutil/v2/ossutil2-linux-amd64
-          
-          # 2. 检查文件是否下载成功 (防御性编程)
-          # 如果文件不存在或者文件大小为 0，说明下载失败了
+          # 1. 下载 ossutil 2.0 (使用 GitHub Release 链接，极其稳定)
+          # 直接下载二进制文件并保存为 ossutil
+          wget -q -O ossutil https://github.com/aliyun/ossutil/releases/download/v2.0.3-beta.02061300/ossutil-linux-amd64
+
+          # 2. 验证下载 (重要：防止下载到 HTML 错误页)
+          # 检查文件是否存在且不为空
           if [ ! -s ossutil ]; then
-            echo " 下载 ossutil 失败！文件为空或损坏。"
+            echo " ossutil 下载失败，文件为空！"
             exit 1
           fi
 
-          # 3. 安装到系统路径并赋予执行权限
+          # 3. 安装并赋予执行权限
           sudo mv ossutil /usr/local/bin/ossutil
-          sudo chmod 755 /usr/local/bin/ossutil
+          sudo chmod +x /usr/local/bin/ossutil
 
           # 4. 设置环境变量 (ossutil 2.0 会自动读取这些变量)
           export OSS_ACCESS_KEY_ID=$
@@ -41,6 +41,7 @@ jobs:
           # --delete: 自动删除 OSS 上本地没有的文件
           # --update: 仅同步更新的文件
           # --exclude: 排除不需要的系统/日志文件
+          # --force: 强制执行
           ossutil sync ./ oss://${{ secrets.ALIYUN_OSS_BUCKET }} \
             --delete \
             --update \
