@@ -3,45 +3,44 @@ name: 🚀 阿里云 OSS 增量部署
 on:
   push:
     branches: 
-      - main
+      - main  # 监听 main 分支的推送
 
 jobs:
   sync-to-oss:
     runs-on: ubuntu-latest
-    name: 🔗 增量同步静态文件
+    name: 🔗 全自动同步静态文件
     steps:
+      # 1. 拉取代码到工作流虚拟机
       - name: 📂 检出代码
         uses: actions/checkout@v4
         with:
+          # 必须设置为 0，获取完整的 Git 历史，确保能正确识别所有文件变更
           fetch-depth: 0
 
-      - name: 🔄 执行增量同步
+      # 2. 安装依赖并执行同步
+      - name: 🔄 执行双向同步
         run: |
-          # 1. 下载 ossutil 2.0 (使用 GitHub Release 链接，极其稳定)
-          # 直接下载二进制文件并保存为 ossutil
-          wget -q -O ossutil https://github.com/aliyun/ossutil/releases/download/v2.0.3-beta.02061300/ossutil-linux-amd64
+          # 1. 设置安装参数并执行官方安装脚本 (关键改动)
+          # OSSUTIL_VERSION=v2.0.3-beta.02061300: 强制安装 2.0 版本
+          # INSTALL_DIR=/usr/local/bin: 安装到系统路径
+          # 这样可以避免手动下载二进制文件被 CDN 拦截的问题
+          export OSSUTIL_VERSION=v2.0.3-beta.02061300
+          export INSTALL_DIR=/usr/local/bin
+          curl -sSL https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
 
-          # 2. 验证下载 (重要：防止下载到 HTML 错误页)
-          # 检查文件是否存在且不为空
-          if [ ! -s ossutil ]; then
-            echo " ossutil 下载失败，文件为空！"
-            exit 1
-          fi
-
-          # 3. 安装并赋予执行权限
-          sudo mv ossutil /usr/local/bin/ossutil
-          sudo chmod +x /usr/local/bin/ossutil
-
-          # 4. 设置环境变量 (ossutil 2.0 会自动读取这些变量)
-          export OSS_ACCESS_KEY_ID=$
+          # 2. 设置环境变量 (OSSUTIL 2.0 会自动读取)
+          # 注意：这里直接引用 Secrets，2.0 版本无需创建配置文件
+          export OSS_ACCESS_KEY_ID=${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
           export OSS_ACCESS_KEY_SECRET=${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
           export OSS_ENDPOINT=${{ secrets.ALIYUN_OSS_ENDPOINT }}
 
-          # 5. 执行同步 (核心逻辑)
-          # --delete: 自动删除 OSS 上本地没有的文件
-          # --update: 仅同步更新的文件
-          # --exclude: 排除不需要的系统/日志文件
-          # --force: 强制执行
+          # 3. 执行同步操作 (核心逻辑)
+          # ./ : 本地当前目录
+          # oss://... : 目标 Bucket
+          # --delete : 删除目标端多余文件 (保持与本地一致)
+          # --update : 增量更新 (只传变化的)
+          # --force : 强制执行
+          # --exclude : 排除不需要的文件
           ossutil sync ./ oss://${{ secrets.ALIYUN_OSS_BUCKET }} \
             --delete \
             --update \
