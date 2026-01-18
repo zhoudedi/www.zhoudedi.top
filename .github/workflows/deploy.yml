@@ -22,8 +22,13 @@ jobs:
       - name: 🔄 执行增量同步
         run: |
           # 下载阿里云官方命令行工具 ossutil (Linux 64位)
-          # 建议查看阿里云官方文档获取最新版本链接
-          wget -O ossutil https://gosspublic.alicdn.com/ossutil/1.8.3/ossutil64
+          # 建议查看阿里云官方文档获取最新版本
+          curl -s https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
+
+          # 安装后，ossutil 应该在 /usr/bin/ossutil
+          # 验证安装
+          ossutil --version
+
           chmod +x ossutil
 
           # 创建 ossutil 的配置文件
