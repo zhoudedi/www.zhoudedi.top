@@ -41,4 +41,4 @@ jobs:
           # --delete : ⭐️ 关键参数！如果本地没有该文件，OSS 上的对应文件也会被删除
           # --force : 强制执行，不进行交互式确认
           # --update : 仅当文件更新时才传输（增量传输，节省流量）
-          ossutil sync ./www oss://${{ secrets.ALIYUN_OSS_BUCKET }} --delete --update --force
+          ossutil sync ./ oss://${{ secrets.ALIYUN_OSS_BUCKET }} --delete --update --force
