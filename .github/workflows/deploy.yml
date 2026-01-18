@@ -38,4 +38,4 @@ jobs:
           # 关键修正：直接使用 ossutil 命令，不要加 ./ 前缀
           # -u 参数：仅同步更新的文件（实现你的“只传修改文件”需求）
           # -r 参数：递归上传目录
-          ossutil cp ./ oss://${{ secrets.ALIYUN_OSS_BUCKET }} -u -r -f
+          ossutil cp ./www/ oss://${{ secrets.ALIYUN_OSS_BUCKET }} -u -r -f
