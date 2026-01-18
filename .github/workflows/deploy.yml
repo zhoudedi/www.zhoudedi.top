@@ -20,33 +20,26 @@ jobs:
       # 2. 安装依赖并执行同步
       - name: 🔄 执行双向同步
         run: |
-          # 1. 设置安装参数并执行官方安装脚本 (关键改动)
-          # OSSUTIL_VERSION=v2.0.3-beta.02061300: 强制安装 2.0 版本
-          # INSTALL_DIR=/usr/local/bin: 安装到系统路径
-          # 这样可以避免手动下载二进制文件被 CDN 拦截的问题
-          export OSSUTIL_VERSION=v2.0.3-beta.02061300
-          export INSTALL_DIR=/usr/local/bin
-          curl -sSL https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
+          # 1. 下载并执行官方安装脚本
+          # 使用 sudo 确保有权限安装到系统目录
+          curl -s https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
 
-          # 2. 设置环境变量 (OSSUTIL 2.0 会自动读取)
-          # 注意：这里直接引用 Secrets，2.0 版本无需创建配置文件
-          export OSS_ACCESS_KEY_ID=${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
-          export OSS_ACCESS_KEY_SECRET=${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
-          export OSS_ENDPOINT=${{ secrets.ALIYUN_OSS_ENDPOINT }}
+          # 2. 创建 ossutil 的配置文件
+          # 将 Secrets 注入配置文件
+          cat > ~/.ossutilconfig << EOF
+          [Credentials]
+          language=CH
+          accessKeyID=${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          accessKeySecret=${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+          endpoint=${{ secrets.ALIYUN_OSS_ENDPOINT }}
+          EOF
 
-          # 3. 执行同步操作 (核心逻辑)
-          # ./ : 本地当前目录
-          # oss://... : 目标 Bucket
-          # --delete : 删除目标端多余文件 (保持与本地一致)
-          # --update : 增量更新 (只传变化的)
-          # --force : 强制执行
-          # --exclude : 排除不需要的文件
-          ossutil sync ./ oss://${{ secrets.ALIYUN_OSS_BUCKET }} \
-            --delete \
-            --update \
-            --exclude=".git*" \
-            --exclude=".github*" \
-            --exclude="*.log" \
-            --exclude="tmp*" \
-            --exclude=".DS_Store" \
-            --force
+          # 3. 执行同步操作 (核心改动点)
+          # ./www : 你的本地网站目录
+          # oss://... : 你的 Bucket 地址
+          # sync : 使用同步命令代替 cp，它会比对两边的文件
+          # --delete : ⭐️ 关键参数！如果本地没有该文件，OSS 上的对应文件也会被删除
+          # --force : 强制执行，不进行交互式确认
+          # --update : 仅当文件更新时才传输（增量传输，节省流量）
+          ossutil sync ./www oss://${{ secrets.ALIYUN_OSS_BUCKET }} --delete --update --force
+
