@@ -17,28 +17,28 @@ jobs:
 
       - name: 🔄 执行增量同步
         run: |
-          # 下载并安装 ossutil
-          curl -s https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
+          # 1. 安装 ossutil 2.0 (关键修改：指定安装 2.0 版本)
+          # ossutil 2.0 支持 sync 命令和环境变量配置
+          curl -sSL https://gosspublic.alicdn.com/ossutil/v2/ossutil2-linux-amd64 | sudo tee /usr/local/bin/ossutil > /dev/null
+          sudo chmod 755 /usr/local/bin/ossutil
 
-          # 配置环境变量 (推荐方式，比写文件更简洁)
+          # 2. 设置环境变量 (ossutil 2.0 会自动读取这些变量)
           export OSS_ACCESS_KEY_ID=${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
           export OSS_ACCESS_KEY_SECRET=${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
           export OSS_ENDPOINT=${{ secrets.ALIYUN_OSS_ENDPOINT }}
 
-          # 核心同步命令
-          # --exclude=".git*": 排除 .git 目录和 .gitignore 文件
-          # --exclude=".github*": 排除 GitHub Actions 相关文件
-          # --exclude="*.log": 排除所有日志文件
-          # --exclude="tmp*": 排除临时文件
-          # --delete: 删除 OSS 上本地没有的文件
-          # --update: 仅同步更新的文件
+          # 3. 执行同步 (使用 ossutil 2.0 的语法)
+          # sync: 同步命令
+          # --delete: 删除目标端多余文件
+          # --update: 增量更新
+          # --exclude: 排除指定文件
           # --force: 强制执行
           ossutil sync ./ oss://${{ secrets.ALIYUN_OSS_BUCKET }} \
+            --delete \
+            --update \
             --exclude=".git*" \
             --exclude=".github*" \
             --exclude="*.log" \
             --exclude="tmp*" \
             --exclude=".DS_Store" \
-            --delete \
-            --update \
             --force
