@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<hread>
+    <title>
+        我很生气，先道歉再查看
+    </title>
+</hread>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<style>
+    .bdiv{background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(245, 245, 245); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-position: initial initial; background-repeat: initial initial; }
+</style>
+<script>
+    function zdd()
+    {
+        var sorry = $('#sorry').val();
+        if(sorry == '对不起')
+        {
+            alert('态度不错，准备跳转...');
+            window.location.href="love.html";
+
+        }
+        else
+        {
+            alert('你什么态度？打屎你！');
+        }
+    }
+</script>
+<style>
+    body{ font-family:"Microsoft YaHei",Arial;font-size:12px;}
+    a {
+        outline:none;
+        blr:expression(this.onFocus=this.blur());
+        text-decoration:none;
+    }
+    a.wb_sina {
+        float:left;
+        margin-top:20px;
+        margin-left:15px;
+        display:inline-block;
+        padding:4px 10px;
+        border-radius:3px;
+        background-color:#e55345;
+        background-image:-moz-linear-gradient(top,#e96249,#e03c40);
+        background-image:-ms-linear-gradient(top,#e96249,#e03c40);
+        background-image:-webkit-gradient(linear,0 0,0 100%,from(#e96249),to(#e03c40));
+        background-image:-webkit-linear-gradient(top,#e96249,#e03c40);
+        background-image:-o-linear-gradient(top,#e96249,#e03c40);
+        background-image:linear-gradient(top,#e96249,#e03c40);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e96249',endColorstr='#e03c40',GradientType=0);
+        background-repeat:repeat-x;
+        text-shadow:0 -1px 0 rgba(0,0,0,.5);
+        border:1px solid #cf2b28;
+        color:#fff!important;
+        box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2);
+    }
+    a.wb_sina:hover {
+        background-image:-moz-linear-gradient(top,#e03c40,#e96249);
+        background-image:-ms-linear-gradient(top,#e03c40,#e96249);
+        background-image:-webkit-gradient(linear,0 0,0 100%,from(#e03c40),to(#e96249));
+        background-image:-webkit-linear-gradient(top,#e03c40,#e96249);
+        background-image:-o-linear-gradient(top,#e03c40,#e96249);
+        background-image:linear-gradient(top,#e03c40,#e96249);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e03c40',endColorstr='#e96249',GradientType=0);
+    }
+    a.wb_sina span {
+        display:inline-block;
+        vertical-align:-5px;
+        margin-right:7px;
+        height:20px;
+        width:24px;
+        background:url(./images/weibo.png) no-repeat;
+    }
+    a.wb_tencent {
+        float:left;
+        margin-top:20px;
+        margin-left:15px;
+        display:inline-block;
+        padding:4px 10px;
+        border-radius:3px;
+        background-color:cadetblue;
+        background-image:-moz-linear-gradient(top,#1288d4,#0771c1);
+        background-image:-ms-linear-gradient(top,#1288d4,#0771c1);
+        background-image:-webkit-gradient(linear,0 0,0 100%,from(cadetblue),to(cadetblue));
+        background-image:-webkit-linear-gradient(top,cadetblue,cadetblue);
+        background-image:-o-linear-gradient(top,#1288d4,#0771c1);
+        background-image:linear-gradient(top,#1288d4,#0771c1);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1288d4',endColorstr='#0771c1',GradientType=0);
+        background-repeat:repeat-x;
+        text-shadow:0 -1px 0 rgba(0,0,0,.5);
+        border:1px solid #0D6EB8;
+        color:#fff!important;
+        box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2);
+    }
+    a.wb_tencent:hover {
+        background-color:#0e7fcc;
+        background-image:-moz-linear-gradient(top,#0771c1,#1288d4);
+        background-image:-ms-linear-gradient(top,#0771c1,#1288d4);
+        background-image:-webkit-gradient(linear,0 0,0 100%,from(#0771c1),to(#1288d4));
+        background-image:-webkit-linear-gradient(top,#0771c1,#1288d4);
+        background-image:-o-linear-gradient(top,#0771c1,#1288d4);
+        background-image:linear-gradient(top,#0771c1,#1288d4);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0771c1',endColorstr='#1288d4',GradientType=0);
+    }
+    a.wb_tencent span {
+        display:inline-block;
+        vertical-align:-5px;
+        margin-right:7px;
+        height:20px;
+        width:24px;
+        background:url(./images/weibo1.png) no-repeat 0px;
+    }
+    #abox
+    {
+        position: fixed;
+        _position: absolute;
+        right: 15px;
+        z-index: 99999999;
+    }
+</style>
+<body>
+<div id="abox">
+    <!-- <a href="http://weibo.com/lingchen1" target="_blank" class="wb_sina"><span></span>新浪微博</a> -->
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2933206679&site=qq&menu=yes" target="_blank" class="wb_tencent"><span></span>联系QQ</a>
+</div>
+<div style="width: 500px; margin: 0 auto;">
+    <img src="./images/2554.gif" border="0" />
+
+    <input id="sorry" style="float:left; height:30px; width:350px; line-height:30px; color:#CCC; font-size: 16px;" type="text" class="bdiv gray" value="--说“对不起”--" onfocus="this.className='bdiv';if (this.value=='--说“对不起”--') {this.value=''}" onblur="if(this.value==''){this.className+=' gray';this.value='--说“对不起”--'}">
+    <input id="check" class="bdiv" style="float: right; font-size: 16px; height:30px; width:100px;" type="button" value="注意态度" onclick="zdd()">
+    <!-- JiaThis Button BEGIN -->
+    <script type="text/javascript" >
+        var jiathis_config={
+            data_track_clickback:true,
+            summary:"",
+            appkey:{
+                "tsina":"2983735413",
+                "tqq":"801352704",
+                "qzone":"100442690",
+            },
+            showClose:true,
+            shortUrl:false,
+            hideMore:false
+        }
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?uid=1773469&type=left&btn=l.gif&move=1" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+
+</div>
+</body>
+</html>

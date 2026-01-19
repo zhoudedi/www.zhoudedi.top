@@ -1,0 +1,30 @@
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; OVERFLOW: auto; PADDING-TOP: 0px
+}
+#code {
+	FONT-FAMILY: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", "sans-serif"; HEIGHT: 300px; FONT-SIZE: 12px
+}
+#code .string {
+	COLOR: #2a36ff
+}
+#code .keyword {
+	COLOR: #7f5100; FONT-WEIGHT: bold
+}
+#code .placeholder {
+	MARGIN-LEFT: 15px
+}
+#code .space {
+	MARGIN-LEFT: 7px
+}
+#code .comments {
+	COLOR: #3f7f5f
+}
+#copyright {
+	TEXT-ALIGN: center; MARGIN-TOP: 10px; WIDTH: 100%; COLOR: #666
+}
+#errorMsg {
+	POSITION: absolute; TEXT-ALIGN: center; WIDTH: 100%; FONT-SIZE: 24px; TOP: 100px; LEFT: 0px
+}
+#copyright A {
+	COLOR: #666
+}

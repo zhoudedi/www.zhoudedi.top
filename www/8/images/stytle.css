@@ -1,0 +1,29 @@
+.header H1 {
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 75px;
+	MARGIN: 60px;
+	FONT-FAMILY: 幼圆;
+	FONT-SIZE: 52px;
+	color: #F00;
+}
+HTML {
+	MIN-HEIGHT: 100%
+}
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; BACKGROUND: url(http://mat1.gtimg.com/www/mb/skin/jd/lmqrj/bg.jpg) no-repeat left -50px; HEIGHT: 100%; OVERFLOW: hidden; PADDING-TOP: 0px; background-size: cover
+}
+A {
+	FONT-STYLE: italic; FONT-SIZE: 24px; TEXT-DECORATION: none
+}
+A:hover {
+	
+}
+.container {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 30px; PADDING-LEFT: 25px; WIDTH: 600px; PADDING-RIGHT: 25px; HEIGHT: 300px; MARGIN-LEFT: auto; MARGIN-RIGHT: auto; PADDING-TOP: 30px; -moz-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px; -ms-border-radius: 10px; -khtml-border-radius: 10px; border-radius: 10px; -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); -o-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5)
+}
+.z {
+	MARGIN-TOP: 100px; FONT-SIZE: 30px; FONT-WEIGHT: normal
+}
+.l {
+	MARGIN-TOP: 65px
+}

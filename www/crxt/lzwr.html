@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>广西电力职业技术学院进出管理系统</title>
+    <link rel="stylesheet" href="./js/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./js/bootstrap-3.3.7/css/bootstrap.css">
+    <script src="./js/bootstrap-3.3.7/js/jquery.min.js"></script>
+    <script src="./js/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="./js/mobiscroll/jquery.js"></script>
+    
+</head>
+<body>
+<script language="javascript">
+    function custom_close(){
+        window.opener=null;
+        window.open('','_self');
+        window.close();
+    }
+</script>
+<div class="container">
+    <br/>
+    <div class="text-center">
+        <img src="./images/gx_03.png"/>
+    </div>
+    <br />
+    <h1 class="text-center">东校正门入登记</h1>
+    <br />
+    <div>
+        <p><h3 class="text-center text-danger">姓名：龙智炜，欢迎您！</h3></p>
+        <p><h3 class="text-center text-danger">单位信息：智信1908班</h3></p>
+        <p><h2 class="text-center text-success">审批人：罗锦光<!--<span class="glyphicon glyphicon-ok"></span>--></h2></p>
+        <p><h4 class="text-center text-danger" id="ymd"></h4></p>
+    </div>
+    <br />
+    <br />
+    <p class="text-center">Copyright © 2020 广西电力职业技术学院</p>
+</div>
+</body>
+<script>
+var ampm="";
+        var date = new Date()<!--获得日期数据-->
+        var y = date.getFullYear();<!--年-->
+        var m = date.getMonth();<!--月，这里的月份必须要+1才是当前月份-->
+        var d = date.getDate();<!--日，getDay是获得当前星期几（0-6），getDate是获得当前日期-->
+        var h= date.getHours();
+        var f=date.getMinutes();
+        m = m + 1;
+        if (m < 10) m = "0" + m;
+        if (d < 10) d = "0" + d;
+        if (h < 10) h = "0" + h;
+        if (f < 10) f = "0" + f;
+        if (h < 12){
+            ampm = "AM";
+        } else if(h>=12){
+            ampm = "PM";
+        }
+        document.getElementById("ymd").innerHTML = +y+"年"+m+"月"+d+"日"+ampm+h+":"+f;
+    </script>
+</html>

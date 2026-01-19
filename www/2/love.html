@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+    <title>zdd制作专属爱情网页：祝天下有情人终成眷属</title>
+    <meta name="keywords" content="爱情网站,爱情网页,表白网页,爱情网页编写,告白" />
+    <meta name="description" content="属于自己的表白方式，我们不懂浪漫，但我们也会讨媳妇欢心。" />
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="css/prettyPhoto.css" rel="stylesheet" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+    <script src="js/switcher.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script src="js/prettyPhoto.js"></script>
+    <script>
+        function checkhtml5()
+        {
+            if ($.browser.msie  && parseInt($.browser.version, 10) < 9) {
+                document.body.innerHTML="<div style=' clear: both; text-align:center; position: relative; height: 50px; margin-top: 30px; padding: 20px; background-color: red; color: white; font-size:20px;'>你的浏览器非常落后，不支持 HTML5!<br/>请使用 Chrome 14+/IE 9+/Firefox 7+/Safari 4+ 其中任意一款浏览器访问此页面。</a></div>";
+
+            }
+        }
+    </script>
+    <style>
+        a {
+            outline:none;
+            blr:expression(this.onFocus=this.blur());
+            text-decoration:none;
+        }
+        a.wb_sina {
+            float:left;
+            margin-top:20px;
+            margin-left:15px;
+            display:inline-block;
+            padding:4px 10px;
+            border-radius:3px;
+            background-color:#e55345;
+            background-image:-moz-linear-gradient(top,#e96249,#e03c40);
+            background-image:-ms-linear-gradient(top,#e96249,#e03c40);
+            background-image:-webkit-gradient(linear,0 0,0 100%,from(#e96249),to(#e03c40));
+            background-image:-webkit-linear-gradient(top,#e96249,#e03c40);
+            background-image:-o-linear-gradient(top,#e96249,#e03c40);
+            background-image:linear-gradient(top,#e96249,#e03c40);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e96249',endColorstr='#e03c40',GradientType=0);
+            background-repeat:repeat-x;
+            text-shadow:0 -1px 0 rgba(0,0,0,.5);
+            border:1px solid #cf2b28;
+            color:#fff!important;
+            box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2);
+        }
+        a.wb_sina:hover {
+            background-image:-moz-linear-gradient(top,#e03c40,#e96249);
+            background-image:-ms-linear-gradient(top,#e03c40,#e96249);
+            background-image:-webkit-gradient(linear,0 0,0 100%,from(#e03c40),to(#e96249));
+            background-image:-webkit-linear-gradient(top,#e03c40,#e96249);
+            background-image:-o-linear-gradient(top,#e03c40,#e96249);
+            background-image:linear-gradient(top,#e03c40,#e96249);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e03c40',endColorstr='#e96249',GradientType=0);
+        }
+        a.wb_sina span {
+            display:inline-block;
+            vertical-align:-5px;
+            margin-right:7px;
+            height:20px;
+            width:24px;
+            background:url(./images/weibo.png) no-repeat;
+        }
+        a.wb_tencent {
+            float:left;
+            margin-top:20px;
+            margin-left:15px;
+            display:inline-block;
+            padding:4px 10px;
+            border-radius:3px;
+            background-color:#0e7fcc;
+            background-image:-moz-linear-gradient(top,#1288d4,#0771c1);
+            background-image:-ms-linear-gradient(top,#1288d4,#0771c1);
+            background-image:-webkit-gradient(linear,0 0,0 100%,from(#1288d4),to(#0771c1));
+            background-image:-webkit-linear-gradient(top,#1288d4,#0771c1);
+            background-image:-o-linear-gradient(top,#1288d4,#0771c1);
+            background-image:linear-gradient(top,#1288d4,#0771c1);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1288d4',endColorstr='#0771c1',GradientType=0);
+            background-repeat:repeat-x;
+            text-shadow:0 -1px 0 rgba(0,0,0,.5);
+            border:1px solid #0D6EB8;
+            color:#fff!important;
+            box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2);
+        }
+        a.wb_tencent:hover {
+            background-color:#0e7fcc;
+            background-image:-moz-linear-gradient(top,#0771c1,#1288d4);
+            background-image:-ms-linear-gradient(top,#0771c1,#1288d4);
+            background-image:-webkit-gradient(linear,0 0,0 100%,from(#0771c1),to(#1288d4));
+            background-image:-webkit-linear-gradient(top,#0771c1,#1288d4);
+            background-image:-o-linear-gradient(top,#0771c1,#1288d4);
+            background-image:linear-gradient(top,#0771c1,#1288d4);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0771c1',endColorstr='#1288d4',GradientType=0);
+        }
+        a.wb_tencent span {
+            display:inline-block;
+            vertical-align:-5px;
+            margin-right:7px;
+            height:20px;
+            width:24px;
+            background:url(./images/weibo1.png) no-repeat 0px;
+        }
+
+        #abox
+        {
+            position: fixed;
+            _position: absolute;
+            right: 15px;
+            z-index: 99999999;
+        }
+
+        #copyright{text-align:center;width:100%;color:#666; background-color: #FFFFFF;padding: 10px;}
+    </style>
+</head>
+
+<body onload="checkhtml5()">
+<div id="gspinner" class="spinner"></div>
+
+<div id="glob">
+    <article id="content">
+        <div class="inner">
+		
+            <div id="abox">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=2933206679&site=qq&menu=yes" target="_blank" class="wb_tencent"><span></span>联系QQ</a>
+            </div>
+
+            <h1><a href="#!/splash"><img src="./images/logo.png" alt=""/></a></h1>
+            <nav>
+                <ul>
+                    <li class="li-1"><a href="#!/about_studio">★ 爱的宣誓</a></li>
+                    <li class="li-2"><a href="#!/our_staff">★ 我们的故事</a></li>
+                    <li class="li-3"><a href="#!/classes">★ 幸福定格</a></li>
+                    <li class="li-4"><a href="#!/contacts">★ 留言祝福</a></li>
+                </ul>
+            </nav>
+            <div class="illus">
+            佩奇与憨憨<span style="color:#f7ff8c">的爱情记录</span>
+
+
+                <div id="loveHeart" style="margin-top: 30px;font-size: 25px;margin-left: 100px;">
+                    <span style="color:#f7ff8c">我们相爱了</span> <span id="zddsj" style="margin: 10px 0px 10px 0px;"></span>
+                </div>
+            </div>
+            <div class="next-btns">
+                <ul class="next-btns">
+                    <li class="li-1"><a href="#!/about_studio"><img src="./images/next.png" alt=""/></a></li>
+                    <li class="li-2"><a href="#!/our_staff"><img src="./images/next.png" alt=""/></a></li>
+                    <li class="li-3"><a href="#!/classes"><img src="./images/next.png" alt=""/></a></li>
+                    <li class="li-4"><a href="#!/contacts"><img src="./images/next.png" alt=""/></a></li>
+                </ul>
+            </div>
+            <ul class="pages">
+                <li id="splash"></li>
+                <li id="about_studio">
+
+                    <h2><span><span>1</span></span>爱的宣誓</h2>
+                    <p class="bold upc p1">人物：佩奇 &amp; 憨憨</p>
+                    <div class="contentbox">
+                        不在乎曾经拥有，只在乎天长地久。<br />
+                        爱，就要说出来！<br />
+                        再美好的回忆，也只是回忆；<br />
+                        再美丽的诺言，不到实现的那一刻，也只是一句空话。<br/>
+                        人生在世几十年，谁先过完谁玩儿完。不争朝夕？那是电影里忽悠小姑娘的话，谁信谁傻逼。
+                    </div>
+
+                </li>
+                <li id="our_staff">
+                    <h2><span><span>2</span></span>我们的故事</h2>
+                    <p class="bold upc p1">人物：佩奇 &amp; 憨憨</p>
+                    <div class="contentbox">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;我们是高中三年级时候认识的，08年的10月份下旬，那会儿非常害羞，连跟女孩子对视的勇气都没有，虽然在学校见过你几次，也没敢说过话，后来有一次寝室聊天，说到心仪的女孩子，大家都问我，非让我说，我就坦白了，事情过后没两天，这帮牲口竟然背着我去打听你的信息，手机号码、班级、姓名全都找出来了，在我不知情的情况下冒用我的名义约你出来，最终的结果是被寝室的几个牲口强制从五楼拖下去给你见面了。结果可想而知，我被你拒绝了。</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;在被拒绝之后，我自己反到胆子大了，慢慢的敢跟你接触了。我开始频繁的找你说话，你喜欢打乒乓球，我就找你一起打，你打的不好，我就装作比你打的还差，你无法想象我必须想办法让你接到我打的球，而我却要装作接不到你的球这是多么的累；不过这个方法非常有用，以至于后来咱俩经常打乒乓球。</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;高三毕业之后，分开了，其实当时的关系就算是确定了，只不过你一直不说出来。后来由于一些原因，我们没有再联系，但心里一直很想你，2011年的时候，我正在家上网，突然发现有一个QQ好友申请，点开一看立马心跳加速了，这串号码我倒背如流。后来我们每天联系，你当时学校放假，安排的实习，所以等了很久我们才见上面。我下定决心一定要你跟我在一起，你没有立即答复我，但是后来不知不觉就在一起了，一直到现在，我们的关系越来越好。家里的亲戚们，也都差不多都见过了，我爸妈也都很喜欢。</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;不过虽说家里家长都很喜欢你，但是你还得乖乖听话，让你站着就不能坐着。^_^</p>
+                    </div>
+                </li>
+                <li id="classes">
+                    <h2><span><span>3</span></span>幸福定格</h2>
+                    <div class="contentbox" style="min-height: 560px;">
+                    <ul class="list" id="piclist">
+                        <li>
+                            <a href="./images/uploadimage/imglsh001.jpg" rel="prettyPhoto[gallery1]">
+                                <img src="./images/uploadimage/imglsh001small.jpg" style="margin:0 auto; display:block;" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./images/uploadimage/imglsh002.jpg" rel="prettyPhoto[gallery1]">
+                                <img src="./images/uploadimage/imglsh002small.jpg" style="margin:0 auto; display:block;" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./images/uploadimage/img003.png" rel="prettyPhoto[gallery1]">
+                                <img src="./images/uploadimage/img003small.png" style="margin:0 auto; display:block;" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./images/uploadimage/img004.jpg" rel="prettyPhoto[gallery1]">
+                                <img src="./images/uploadimage/img004small.jpg" style="margin:0 auto; display:block;" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="clear p2"></div>
+                <li id="contacts">
+                    <h2><span><span>4</span></span>留言祝福</h2>
+                    <div class="contentbox" style="min-height: 500px;">
+                        <!-- Duoshuo Comment BEGIN -->
+                        <div class="ds-thread" data-thread-key="<%= page.path %>" data-title="<%= page.title %>" data-url="http://itbirds1900.github.io/<%= page.permalink %>"></div><!-- 多说评论框 end --><!-- 多说公共JS代码 start (一个网页只需插入一次) --><script type="text/javascript">    var duoshuoQuery = {short_name:"itmyhome1900"};        (function() {            var ds = document.createElement('script');            ds.type = 'text/javascript';ds.async = true;            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';            ds.charset = 'UTF-8';            (document.getElementsByTagName('head')[0]              || document.getElementsByTagName('body')[0]).appendChild(ds);        })();</script>
+                        <!-- Duoshuo Comment END -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="z1"> <img src="./images/parts-1.png" alt="" class="parts part-1"/> <img src="./images/parts-4.png" alt="" class="parts part-4"/> <img src="./images/parts-8.png" alt="" class="parts part-8"/> <img src="./images/parts-11.png" alt="" class="parts part-11"/> </div>
+        <div class="z2"> <img src="./images/parts-2.png" alt="" class="parts part-2"/> <img src="./images/parts-5.png" alt="" class="parts part-5"/> <img src="./images/parts-7.png" alt="" class="parts part-7"/> </div>
+        <div class="z3"> <img src="./images/parts-3.png" alt="" class="parts part-3"/> <img src="./images/parts-6.png" alt="" class="parts part-6"/> <img src="./images/parts-9.png" alt="" class="parts part-9"/> <img src="./images/parts-10.png" alt="" class="parts part-10"/> </div>
+    </article>
+    <div class="track"> <a href="javascript:void(0)"><img src="./images/track.png" alt=""/></a> </div>
+</div>
+
+
+
+
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" >
+    var jiathis_config={
+        data_track_clickback:true,
+        summary:"",
+        appkey:{
+            "tsina":"2983735413",
+            "tqq":"801352704",
+            "qzone":"100442690",
+        },
+        showClose:true,
+        shortUrl:false,
+        hideMore:false
+    }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?uid=1773469&type=left&btn=l.gif&move=1" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+<!--footer -->
+<footer style="line-height:20px">
+    <div id="copyright" style="background-color: #FFFFFF">
+        <script type="text/javascript">
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6819495afd6e900d02380920eb98d985' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+
+        Copyright © 2019 <a href='http://qe888.qicp.vip' target="_blank">zhoudedi</a> 2019-2020
+
+        技术支持： <a href="http://www.myibird.com" target="_blank">lvxin </a>
+        <object type="application/x-shockwave-flash" data="music_player.swf?mp3=http://www.diaozhale.com/Public/music/1378678376.mp3&amp;autostart=1&amp;autoreplay=1" width="0" height="0" id="dewplayer-mini">
+            <param name="wmode" value="transparent">
+            <param name="movie" value="music_player.swf?mp3=http://www.diaozhale.com/Public/music/1378678376.mp3&amp;autostart=1&amp;autoreplay=1">
+            <embed src="music_player.swf?mp3=http://www.diaozhale.com/Public/music/1378678376.mp3&amp;autostart=1&amp;autoreplay=1" width="0" height="0" wmode="transparent"></embed>
+        </object>
+    </div>
+    <!-- {%FOOTER_LINK} -->
+</footer>
+<!--footer end-->
+</body>
+<script>
+    $(window).load(function (){
+        var biz_name = '';
+        var biz_url = '';
+        $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:'<a href="' + biz_url + '" target="_blank">' + biz_name + '</a>',animation_speed:'normal',theme:'dark_square',slideshow:5000, autoplay_slideshow: false});
+    });
+</script>
+
+<script type="text/javascript">
+
+
+    var offsetX = $("#loveHeart").width() / 2;
+    var offsetY = $("#loveHeart").height() / 2 - 55;
+    var together = new Date();
+    together.setFullYear(2019, 12, 23);
+    together.setHours(0);
+    together.setMinutes(0);
+    together.setSeconds(0);
+    together.setMilliseconds(0);
+
+    setTimeout(function () {
+        adjustWordsPosition();
+        startHeartAnimation();
+    }, 3000);
+
+    timeElapse(together);
+    setInterval(function () {
+        timeElapse(together);
+    }, 500);
+
+    adjustCodePosition();
+    $("#code").typewriter();
+</script>
+</html>
