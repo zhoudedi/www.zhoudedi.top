@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-		<meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-        <title>zdd资源制作</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="description" content="表白网,我爱你,表白,表白的话" />
-        <meta name="keywords" content="表白网,我爱你,表白,表白的话" />
-        <meta name="author" content="Codrops" />
-        <link rel="shortcut icon" href="ico/favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="css/demo.css" tppabs="zdd.zhoudedi.top
-/css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" tppabs="zdd.zhoudedi.top
-/css/style.css" />
-		<script type="text/javascript" src="js/modernizr.custom.79639.js" tppabs="zdd.zhoudedi.top
-/js/modernizr.custom.79639.js"></script> 
-		<!--[if lte IE 8]>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<title>zdd资源站</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="description" content="表白网,我爱你,表白,表白的话" />
+<meta name="keywords" content="表白网,我爱你,表白,表白的话" />
+<meta name="author" content="Codrops" />
+<link rel="shortcut icon" href="./ico/favicon.ico"> 
+<link rel="stylesheet" type="text/css" href="./css/demo.css" tppabs="/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="./css/style.css" tppabs="/css/style.css" />
+<script type="text/javascript" src="./js/modernizr.custom.79639.js" tppabs="/js/modernizr.custom.79639.js"></script>
+<script type="text/javascript" src="./js/ip.js" tppabs="/js/ip.js"></script>
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="css/simple.css" tppabs="zdd.zhoudedi.top/css/simple.css" />
+<![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-			 <link rel="stylesheet" type="text/css" href="css/simple.css" tppabs="zdd.zhoudedi.top
-/css/simple.css" />
+<!-- 音乐加载js-->
+<!--<script type="text/javascript">
+	  function clickPlaySound() {
+				var music = document.getElementById("bgm");//获取ID
+					console.log(music);
+					console.log(music.paused);
+				if (music.paused) { //判读音频是否播放
+					music.paused=false;
+					music.play(); //如果没有播放就开始播放
+				}
+		}
 
-		<![endif]-->
+	setInterval("clickPlaySound()",1);
+</script>-->
+<!--/ 音乐加载js-->
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!--打开网页加载-->
-<script> 
-window.onload = function () {
-document.body.className += ' loaded';
-}
+<!-- 打开网页加载js-->
+<script type="text/javascript"> 
+	window.onload = function () {
+	document.body.className += ' loaded';
+
+	}
 </script>
-    <style>
+<!--/ 打开网页加载js-->
+
+<!-- 打开网页加载css-->
+<style type="text/css">
 .chromeframe {
 margin: .2em 0;
 background: #ccc;
@@ -208,10 +223,23 @@ color: #FFF;
 opacity: .5
 }
 </style>
-<!--打开网页加载-->
-    </head>
+<!--/ 打开网页加载css-->
 
-    <body>
+<!-- 版权css-->
+<style type="text/css">
+.fixed-bottom{
+text-align: center;
+position: fixed;
+bottom: 50px;
+width: 100%;
+z-index: 9999;
+}
+</style>
+<!--/ 版权css-->
+
+
+</head>
+<body>
 <!--打开网页加载-->        
 <div id="loader-wrapper">
 <div id="loader"></div>
@@ -220,135 +248,94 @@ opacity: .5
 <div id="load_title">小周正在努力加载中，请稍后</div>
 </div>
 <!--打开网页加载-->
-        
-        <div class="container">
-			<!-- Codrops top bar -->
-            <div class="codrops-top">
-            <!--邮箱-->
-                <span class="right">
-<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=w7mnp4O5q6y2p6anqu23rLM" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_11.png"/></a>
-                </span>
-                <div class="clr"></div>
-            </div><!--/ Codrops top bar -->
 
-			
+<!-- container bar -->
+<div class="container">
+	<!-- Codrops top bar -->
+	<div class="codrops-top">
+		<!--邮箱-->
+			<span class="right">
+				<a target="_blank" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=w7mnp4O5q6y2p6anqu23rLM" style="text-decoration:none;"><img src="https://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_11.png"/></a>
+			</span>
+			<div class="clr"></div>		
+			<audio autoplay loop id="bgm"><source src="./zhou.mp3" type="audio/mpeg"></audio>
+	</div>	
+	
+	<!--/ Codrops top bar -->
+	
+	<!-- st-container bar -->
+	<div class="st-container">
+	
+		<input type="radio" name="radio-set" checked="checked" id="st-control-1"/>
+		<a href="#st-panel-1">首页</a>
 
-			<div class="st-container">
+		<input type="radio" name="radio-set" id="st-control-2"/>
+		<a href="#st-panel-2">产品展示</a>
 
-			
+		<input type="radio" name="radio-set" id="st-control-3"/>
+		<a href="#st-panel-3">关于我们</a>
 
-				<input type="radio" name="radio-set" checked="checked" id="st-control-1"/>
+		<input type="radio" name="radio-set" id="st-control-4"/>
+		<a href="#st-panel-4">代刷网</a>
 
-				<a href="#st-panel-1">首页</a>
-
-				<input type="radio" name="radio-set" id="st-control-2"/>
-
-				<a href="#st-panel-2">产品展示</a>
-
-				<input type="radio" name="radio-set" id="st-control-3"/>
-
-				<a href="#st-panel-3">关于我们</a>
-
-				<input type="radio" name="radio-set" id="st-control-4"/>
-
-				<a href="#st-panel-4">代刷网</a>
-
-				<input type="radio" name="radio-set" id="st-control-5"/>
-
-				<a href="#st-panel-5">联系我们</a>
-
-				
-
-			  <div class="st-scroll">
-
-				
-
-				
-
-					
-
-					<section class="st-panel" id="st-panel-1">
-
-						<div class="st-deco" data-icon="L"></div>
-
-						<a href="grjl/index.html"><h2>个人简历
-</h2></a>
-                        
-
-						<p>不舍得遗忘，终究是因为不舍得斩断曾经付出的时光</p>
+		<input type="radio" name="radio-set" id="st-control-5"/>
+		<a href="#st-panel-5">联系我们</a>
+		
+		<div class="st-scroll">
+			<section class="st-panel" id="st-panel-1">
+				<div class="st-deco" data-icon="L"></div>
+				<a href="./grjl/index.html"><h2>个人简历</h2></a>
+				<p>不舍得遗忘，终究是因为不舍得斩断曾经付出的时光</p>
 				<center style="margin-top: 37%;">		
-                <!--<iframe height="520px" src="https://ac.yunyoujun.cn"></iframe>   //空调-->
-                </center>
-					</section>
+				<!--<iframe height="520px" src="https://ac.yunyoujun.cn"></iframe>   //空调-->
+				</center>
+			</section>
+			
+			<section class="st-panel st-color" id="st-panel-2">
+				<div class="st-deco" data-icon="o"></div>
+				<h2>爱自己所爱</h2>
+				<p>
+				<a href="./ys/index.html" tppabs="" target="_blank">表白网页大全点击预览 </a>
+				<br/><br/><br/>
+				<a href="./lvxin/index.html" tppabs="" target="_blank">告白哦！</a> 
+				<br/><br/><br/>
+				<!--<a href="http://wp.zhoudedi.icu/index.php/apps/files/?dir=/&fileid=6" tppabs="" target="_blank">个人网盘！</a>
+				<br/><br/><br/>-->
+				<!--<a href="https://abiaobai.cn/BSY5CA" tppabs="" target="_blank">七夕快乐！</a>
+				<br/><br/><br/> -->
+				<a href="./xyx/index.html" tppabs="" target="_blank">小游戏点击预览 </a> 
+				<br/><br/><br/>
+				<!--<a href="./skm/index.html" tppabs="" target="_blank">五合一收款码生成器点击进入</a>  -->
+				</p>
+			</section>					
 
-					
+			<section class="st-panel" id="st-panel-3">
+				<div class="st-deco" data-icon="V"></div>
+				<h2>关于我们</h2>
+				<p>据说，你梦见一个人，是因为那个人在想你。<br>你说你要睡了,我说晚安,你去睡了,我在想你。<br>你不需要给我任何答案 我说这些话 只是想让你知道 我还坚持着当初我想要坚持的</p>
+			</section>
 
-					<section class="st-panel st-color" id="st-panel-2">
+			<section class="st-panel st-color" id="st-panel-4">
+				<div class="st-deco" data-icon="C"></div>
+				<h2 class="zdd1"><a href="https://zdd.zhoudedi.top/dsw/" tppabs="https://zdd.zhoudedi.top/dsw//" target="_blank">zdd代刷网</a></h2>
+				<p><a href="https://zdd.zhoudedi.top/dsw/" target="_blank">代刷网，我选择:https://zdd.zhoudedi.top/dsw/</a><br><br></p>
+			</section>
 
-						<div class="st-deco" data-icon="o"></div>
-						<h2>爱自己所爱</h2>
-						<p>
-
-                        <a href="ys/index.html" tppabs="" target="_blank">表白网页大全点击预览 </a>
-                         <br/><br/><br/>
-                        <a href="lvxin/index.html" tppabs="" target="_blank">告白哦！</a> 
-                        <br/><br/><br/>
-                        <!--<a href="http://wp.zhoudedi.icu/index.php/apps/files/?dir=/&fileid=6" tppabs="" target="_blank">个人网盘！</a>
-                        <br/><br/><br/>-->
-                        <a href="https://abiaobai.cn/BSY5CA" tppabs="" target="_blank">七夕快乐！</a> 
-                        <br/><br/><br/>
-                        <a href="xyx/index.html" tppabs="" target="_blank">小游戏点击预览 </a> 
-                        <br/><br/><br/>
-                        <a href="skm/index.html" tppabs="" target="_blank">五合一收款码生成器点击进入</a> 
-                        </p>
-
-					</section>
-
-					
-
-					
-
-					<section class="st-panel" id="st-panel-3">
-
-						<div class="st-deco" data-icon="V"></div>
-
-						<h2>关于我们</h2>
-
-						<p>据说，你梦见一个人，是因为那个人在想你。<br>你说你要睡了,我说晚安,你去睡了,我在想你。<br>你不需要给我任何答案 我说这些话 只是想让你知道 我还坚持着当初我想要坚持的</p>
-
-					</section>
-
-					
-
-					<section class="st-panel st-color" id="st-panel-4">
-
-						<div class="st-deco" data-icon="C"></div>
-
-						<h2 class="zdd1"><a href="https://zdd.zhoudedi.top/dsw/" tppabs="https://zdd.zhoudedi.top/dsw//" target="_blank">zdd代刷网</a></h2>
-
-						<p><a href="https://zdd.zhoudedi.top/dsw/" target="_blank">代刷网，我选择:https://zdd.zhoudedi.top/dsw/</a><br><br></p>
-
-					</section>
-
-					
-
-					<section class="st-panel" id="st-panel-5">
-
-						<div class="st-deco" data-icon="O"></div>
-						<h2 class="zdd2"><a href="http://wpa.qq.com/msgrd?v=3&uin=2933206679&site=qq&menu=yes" tppabs="http://wpa.qq.com/msgrd?v=3&uin=2933206679&site=qq&menu=yes" target="_blank">联系我们</a></h2>
-					  <p>
-                        邮箱:zdd@zhoudedi.top<br>
-                        QQ号:2933206679<br>
-					  </p>
-					</section>
-				</div>
-			  <!-- // st-scroll -->
-			</div><!-- // st-container -->
-        </div>
-<iframe id="player" height="22" marginheight="0" src="http://zdd.zhoudedi.top
-/" frameborder="0" width="0%" marginwidth="0" scrolling="no" topmargin="0" leftmargin="0" kesrc="http://zdd.zhoudedi.top
-/upload/dance/7C911E135A5AD5ABF475E284F71C572D.mp3"></iframe>
-
+			<section class="st-panel" id="st-panel-5">
+				<div class="st-deco" data-icon="O"></div>
+				<h2 class="zdd2"><a href="https://wpa.qq.com/msgrd?v=3&uin=2933206679&site=qq&menu=yes" tppabs="https://wpa.qq.com/msgrd?v=3&uin=2933206679&site=qq&menu=yes" target="_blank">联系我们</a></h2>
+				<p>邮箱:zdd@zhoudedi.top<br>QQ号:2933206679<br></p>
+			</section>
+		</div>
+		<!-- // st-scroll -->
+	</div>
+	<!--/ st-container bar -->
+</div>
+<!--/ container bar -->
+<div class="fixed-bottom">
+	<div style="padding-bottom:5px;">您的IP：<span id="ip">加载中...</span> &nbsp; 位置：<span id="ipwz">加载中...</span></div>
+	<div><img src="./fuchuangongan.png" class="w-full" style="width: 16px;"><a href="https://beian.mps.gov.cn/#/query/webSearch?code=45110002000296" rel="noreferrer" target="_blank">桂公网安备45110002000296</a>&nbsp;<a style="color: black;" href="https://beian.miit.gov.cn/" target="_blank">桂ICP备2021000123号-2 </a>  &nbsp;
+	<strong>版权所有</strong><span langtag="application"> 小周</span> © 2018-2023</div>
+</div>
 </body>
-
 </html>
